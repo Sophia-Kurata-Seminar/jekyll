@@ -1,0 +1,48 @@
+--- 
+title: "Jekyllマニュアル"
+author: "Sophia-kurata-seminar"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "上智大学倉田ゼミのHPで使用している、Jekyllの使用方法についてまとめたサイトです。"
+---
+
+#  事前準備{-}
+
+## Ruby,Jekyllのインストール  
+
+以下のサイトを参考に、インストールを進めてください。注意事項や重要事項だけ、以下にまとめたので、併せて確認してみて下さい。
+
+参考：<http://jekyllrb-ja.github.io/docs/installation/windows/>
+
+<b>RubyInstallerをインストールする</b>  
+
+RubyInstallerのサイトから、Rubyインストーラーをインストールする際には、【WITH DEVKIT】の中で、太字になっているバージョンをダウンロードすることをお勧めします。
+
+<b>JekyllとBundlerをインストールする</b>  
+
+コマンドプロンプトを開き、
+```
+gem install jekyll bundler
+```
+を入力すると、JekyllとBundlerがインストールされます。
+
+以下のコマンドで、インストールできているか確認してみましょう。
+```
+jekyll -v
+```
+
+## 基礎知識
+
+<b>Ruby</b>:  
+
+<b>Jekyll</b>:  
+
+<b>gem</b>:  
+
+<b>bundler</b>:  
+
+
