@@ -24,7 +24,7 @@
 <meta name="author" content="Sophia-kurata-seminar" />
 
 
-<meta name="date" content="2021-02-18" />
+<meta name="date" content="2021-02-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -87,7 +87,9 @@
 <li class="chapter" data-level="2.3" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#githubにpush"><i class="fa fa-check"></i><b>2.3</b> Githubにpush</a></li>
 <li class="chapter" data-level="2.4" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#諸注意"><i class="fa fa-check"></i><b>2.4</b> 諸注意</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="共同作業について.html"><a href="共同作業について.html"><i class="fa fa-check"></i><b>3</b> 共同作業について</a></li>
+<li class="chapter" data-level="3" data-path="共同作業について.html"><a href="共同作業について.html"><i class="fa fa-check"></i><b>3</b> 共同作業について</a><ul>
+<li class="chapter" data-level="3.1" data-path="共同作業について.html"><a href="共同作業について.html#基本の操作"><i class="fa fa-check"></i><b>3.1</b> 基本の操作</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
 <li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
 <li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
@@ -119,7 +121,43 @@
 <p>WEBサイトを共同で管理・制作していく方法を紹介します。</p>
 <p>詳細な説明については、以下のURLのサイトを参考にしてください。</p>
 <p>参考：<a href="https://sh-2.github.io/Rstudio_bookdown" class="uri">https://sh-2.github.io/Rstudio_bookdown</a></p>
+<div id="基本の操作" class="section level2">
+<h2><span class="header-section-number">3.1</span> 基本の操作</h2>
+<p>管理者とAさんがGithubのリポジトリを利用して、共同でサイトの更新を行う場合の重要なポイントについて説明します。</p>
+<p>管理者はこれまでと同様の手順でサイトを作成し、Githubにプッシュします。
+Aさんの動きを見てみましょう。</p>
+<p>まず、管理者が作成したリモートリポジトリを、自分のPC上にコピーします。</p>
+<pre><code>cd デスクトップ
+git clone リポジトリのURL</code></pre>
+<p>次にAさんは、自分が作業するブランチを作成します。</p>
+<pre><code>cd コピーしたフォルダ  #コピーしたリモートリポジトリのフォルダへ移動
+git branch    #今あるブランチと、自分のいるブランチ(＊)を表示
+git branch branchA    #masterからbranchAを分岐させる。(masterにいる状態で実行しましょう)
+git checkout branchA    #branchAに移動。今後はここで編集する。
+git branch    #今いるブランチ(＊)を確認（branchAにいるのか確認。）</code></pre>
+<p>Aさんの作業環境が整いました。Aさんはマークダウンファイルの編集を行い、以下のコマンドをこれまで同様に実行します。</p>
+<pre><code>bundle exec jekyll server
+bundle exec jekyll build -d docs
+git add .
+git commit -m&quot;コメント&quot;</code></pre>
+<p>branchAの編集内容をリモートリポジトリにpushします。</p>
+<pre><code>git push origin branchA   #branchAの情報リモートリポジトリにアップロード</code></pre>
+<p>Githubのリポジトリを確認すると、branchAというブランチを確認することができます。</p>
+<p>続いて、プルリクエストとマージを行います。
+branchAがpushされた後、GitHubを開くとpull requestを行うボタンが追加されています。押してみましょう。
+編集内容についてコメントを残し、【Create pull request】を押します。
+管理者はAさんのプルリクエストを確認することができます。</p>
+<p>管理者は、masterとbranchAのマージを行う必要があります。プルリクエストされた画面にある【merge】】ボタンを押せば完了です。</p>
+<p>＊まれにコンフリクトを起こしている場合があります。Githubの案内に従って、コンフリクト内容を確認し、必要に応じて内容の削除を行ってください。</p>
+<p>マージされたことを確認できたら、Aさんは最新のリモートリポジトリの情報をローカルに持ってきて、不要になったブランチを削除します。</p>
+<pre><code>git pull origin master   #ローカルをリモートの最新情報に更新</code></pre>
+<pre><code>git checkout master   #masterブランチに移動
+git branch    #branchAの存在、masterにいることを確認
+git branch -d branchA   #branchAの削除
+git branch    #branchAが消えているのか確認</code></pre>
+<p>2回目以降、Aさんが更新作業を行う場合や新たなメンバーが更新作業を共同で行う場合も、この方法で進めることができます。</p>
 
+</div>
 </div>
             </section>
 

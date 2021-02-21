@@ -5,3 +5,62 @@ WEBサイトを共同で管理・制作していく方法を紹介します。
 詳細な説明については、以下のURLのサイトを参考にしてください。
 
 参考：<https://sh-2.github.io/Rstudio_bookdown>
+
+## 基本の操作
+
+管理者とAさんがGithubのリポジトリを利用して、共同でサイトの更新を行う場合の重要なポイントについて説明します。
+
+管理者はこれまでと同様の手順でサイトを作成し、Githubにプッシュします。
+Aさんの動きを見てみましょう。  
+
+まず、管理者が作成したリモートリポジトリを、自分のPC上にコピーします。
+```
+cd デスクトップ
+git clone リポジトリのURL
+```
+
+次にAさんは、自分が作業するブランチを作成します。
+```
+cd コピーしたフォルダ  #コピーしたリモートリポジトリのフォルダへ移動
+git branch    #今あるブランチと、自分のいるブランチ(＊)を表示
+git branch branchA    #masterからbranchAを分岐させる。(masterにいる状態で実行しましょう)
+git checkout branchA    #branchAに移動。今後はここで編集する。
+git branch    #今いるブランチ(＊)を確認（branchAにいるのか確認。）
+```
+
+Aさんの作業環境が整いました。Aさんはマークダウンファイルの編集を行い、以下のコマンドをこれまで同様に実行します。
+```
+bundle exec jekyll server
+bundle exec jekyll build -d docs
+git add .
+git commit -m"コメント"
+```
+
+branchAの編集内容をリモートリポジトリにpushします。
+```
+git push origin branchA   #branchAの情報リモートリポジトリにアップロード
+```
+Githubのリポジトリを確認すると、branchAというブランチを確認することができます。
+
+続いて、プルリクエストとマージを行います。
+branchAがpushされた後、GitHubを開くとpull requestを行うボタンが追加されています。押してみましょう。
+編集内容についてコメントを残し、【Create pull request】を押します。
+管理者はAさんのプルリクエストを確認することができます。
+
+管理者は、masterとbranchAのマージを行う必要があります。プルリクエストされた画面にある【merge】】ボタンを押せば完了です。
+
+＊まれにコンフリクトを起こしている場合があります。Githubの案内に従って、コンフリクト内容を確認し、必要に応じて内容の削除を行ってください。
+
+マージされたことを確認できたら、Aさんは最新のリモートリポジトリの情報をローカルに持ってきて、不要になったブランチを削除します。
+```
+git pull origin master   #ローカルをリモートの最新情報に更新
+```
+
+```
+git checkout master   #masterブランチに移動
+git branch    #branchAの存在、masterにいることを確認
+git branch -d branchA   #branchAの削除
+git branch    #branchAが消えているのか確認
+```
+
+2回目以降、Aさんが更新作業を行う場合や新たなメンバーが更新作業を共同で行う場合も、この方法で進めることができます。
