@@ -142,7 +142,7 @@ Gem同士の依存関係を整理するものです。bundler自体もgemのひ�
 
 \begin{verbatim}
 bundle install　//gemfileに書かれたgemを読み込む
-bundle update 　//
+bundle update 　//gemのバージョン更新
 \end{verbatim}
 
 \hypertarget{jekyllux30670ux304bux3089ux30b5ux30a4ux30c8ux3092ux4f5cux308b}{%
@@ -243,7 +243,11 @@ gem "just-the-docs"	#config.ymlにremote themeを書く必要はないかも。t
 
 マークダウンファイル
 
-VS codeやAtomで編集することができます。
+VS codeで編集することができます。
+
+VS codeのインストール
+
+Visual Studio Code：\url{https://azure.microsoft.com/ja-jp/products/visual-studio-code/}
 
 \#\#　プレビュー＆出力
 
@@ -356,12 +360,16 @@ git branch    #branchAが消えているのか確認
 本章では、コンフリクトが発生し、マージがうまくいかないときの対処法をご紹介します。
 
 \#\#　単純なコンフリクトの場合
-Githubブラウザ版で、コンフリクトを解決することができます。
+
+Githubの画面上の【Resolve Conflicts】を押します。すると、以下のような画面が表示されるので、不要な部分を削除することでコンフリクトを解決しましょう。
+（画像作成中）
+
+着色された部分について、保存したい変更を残し、それ以外は削除します。
 
 \hypertarget{ux8907ux96d1ux306aux30b3ux30f3ux30d5ux30eaux30afux30c8ux306eux5834ux5408}{%
 \section{複雑なコンフリクトの場合}\label{ux8907ux96d1ux306aux30b3ux30f3ux30d5ux30eaux30afux30c8ux306eux5834ux5408}}
 
-ブランチが3つ以上ある場合や、プルリクエストの前に複雑な作業を行った場合、先ほどのようにGithub上で対処できないことがあります。
+ブランチが3つ以上ある場合や、プルリクエストの前に複雑な作業を行った場合、先ほどのようにGithub（ブラウザ版）上で対処できないことがあります。
 そんな時は以下の2つの方法を順に試してみてください。
 
 \hypertarget{fetchux3068merge}{%
@@ -379,7 +387,13 @@ git merge
 \end{verbatim}
 
 fetchのあと、mergeすることで、ローカルのファイルが最新状態に更新されます。
-\#\#\# Github(デスクトップ版)の利用
+
+\hypertarget{githubux30c7ux30b9ux30afux30c8ux30c3ux30d7ux7248ux306eux5229ux7528}{%
+\subsection{Github(デスクトップ版)の利用}\label{githubux30c7ux30b9ux30afux30c8ux30c3ux30d7ux7248ux306eux5229ux7528}}
+
+Fetch,Mergeをしてもうまくいかない場合は、Github（デスクトップ版）を利用しましょう。デスクトップ版では、複雑なコンフリクトであっても、ブラウザ版同様に、不要な部分を削除することで解決できます。
+
+Github（デスクトップ版）：\url{https://desktop.github.com/}
 
 \hypertarget{final-words}{%
 \chapter{Final Words}\label{final-words}}

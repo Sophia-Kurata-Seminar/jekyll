@@ -33,7 +33,11 @@ gem "just-the-docs"	#config.ymlにremote themeを書く必要はないかも。t
 ```
 <b>マークダウンファイル</b>  
 
-VS codeやAtomで編集することができます。
+VS codeで編集することができます。  
+
+<b>VS codeのインストール</b>
+
+Visual Studio Code：<https://azure.microsoft.com/ja-jp/products/visual-studio-code/>
 
 ##　プレビュー＆出力
 ```
