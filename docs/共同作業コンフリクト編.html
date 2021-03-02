@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Jekyllマニュアル</title>
+  <title>Chapter 4 共同作業(コンフリクト編) | Jekyllマニュアル</title>
   <meta name="description" content="上智大学倉田ゼミのHPで使用している、Jekyllの使用方法についてまとめたサイトです。" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Jekyllマニュアル" />
+  <meta property="og:title" content="Chapter 4 共同作業(コンフリクト編) | Jekyllマニュアル" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Jekyllマニュアル" />
+  <meta name="twitter:title" content="Chapter 4 共同作業(コンフリクト編) | Jekyllマニュアル" />
   
   <meta name="twitter:description" content="上智大学倉田ゼミのHPで使用している、Jekyllの使用方法についてまとめたサイトです。" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Sophia-kurata-seminar" />
 
 
-<meta name="date" content="2021-03-02" />
+<meta name="date" content="2021-02-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="jekyllで0からサイトを作る.html"/>
+<link rel="prev" href="共同作業について.html"/>
+<link rel="next" href="final-words.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -117,42 +117,25 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Jekyllマニュアル</h1>
-<p class="author"><em>Sophia-kurata-seminar</em></p>
-<p class="date"><em>2021-03-02</em></p>
-</div>
-<div id="事前準備" class="section level1 unnumbered">
-<h1>事前準備</h1>
-<div id="rubyjekyllのインストール" class="section level2">
-<h2><span class="header-section-number">0.1</span> Ruby,Jekyllのインストール</h2>
-<p>以下のサイトを参考に、インストールを進めてください。注意事項や重要事項だけ、以下にまとめたので、併せて確認してみて下さい。</p>
-<p>参考：<a href="http://jekyllrb-ja.github.io/docs/installation/windows/" class="uri">http://jekyllrb-ja.github.io/docs/installation/windows/</a></p>
-<p><b>RubyInstallerをインストールする</b></p>
-<p>RubyInstallerのサイトから、Rubyインストーラーをインストールする際には、【WITH DEVKIT】の中で、太字になっているバージョンをダウンロードすることをお勧めします。</p>
-<p><b>JekyllとBundlerをインストールする</b></p>
-<p>コマンドプロンプトを開き、</p>
-<pre><code>gem install jekyll bundler</code></pre>
-<p>を入力すると、JekyllとBundlerがインストールされます。</p>
-<p>以下のコマンドで、インストールできているか確認してみましょう。</p>
-<pre><code>jekyll -v</code></pre>
-</div>
-<div id="基礎知識" class="section level2">
-<h2><span class="header-section-number">0.2</span> 基礎知識</h2>
-<p>ここまでインストールの仕方を説明してきましたが、ここからは用語の説明です。<br />
-参考：<a href="https://qiita.com/oshou/items/6283c2315dc7dd244aef" class="uri">https://qiita.com/oshou/items/6283c2315dc7dd244aef</a></p>
-<p><b>Ruby,jekyllとは</b></p>
-<p>Rubyはプログラミング言語のひとつで、jekyllはこの言語で書かれています。jekyllとは、Rubyで書かれた（静的）サイトを作るソフトウェアのことで、テンプレートを使えば簡単にサイトを作成できます。</p>
-<p>jekyllテンプレートのサイト：<a href="https://jekyllthemes.io/github-pages-themes" class="uri">https://jekyllthemes.io/github-pages-themes</a></p>
-<p><b>Gemとは</b></p>
-<p>Gemとは、Rでいうパッケージのことです。プログラム言語は機能をまとめたライブラリーというものを作成していることが多くあり、RubyではライブラリーのことをGemと呼びます。使いたいgemをgemfileに記入すればそのgemの機能を簡単に使うことができます。</p>
-<p><b>bundlerとは</b></p>
-<p>Gem同士の依存関係を整理するものです。bundler自体もgemのひとつですが、以下のような場合に備えて使用します。</p>
-<p>GemAを使うために、GemBを使う。さらにGemBを使うためにはGemCを使う時、GemCがアップデートされるとAもBも使えなくなる場合がある。こういう場合に、bundlerはgem同士の互換性を保ちながら各gemの導入、管理を行ってくれます。</p>
-<p>特に、共同作業を行う場合、自分と相手のGemのバージョンが異なると、エラーメッセージが表示されます。なので、定期的に以下のコマンドで、Gemの管理を行いましょう。</p>
-<pre><code>bundle install
-bundle update</code></pre>
+<div id="共同作業コンフリクト編" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> 共同作業(コンフリクト編)</h1>
+<p>共同作業を行っていると、コンフリクトが発生し、マージができない事態が発生することがあります。
+本章では、コンフリクトが発生し、マージがうまくいかないときの対処法をご紹介します。</p>
+<p>##　単純なコンフリクトの場合</p>
+<div id="複雑なコンフリクトの場合" class="section level2">
+<h2><span class="header-section-number">4.1</span> 複雑なコンフリクトの場合</h2>
+<p>ブランチが3つ以上ある場合や、プルリクエストの前に複雑な作業を行った場合、先ほどのようにGithub上で対処できないことがあります。
+そんな時は以下の2つの方法を順に試してみてください。</p>
+<div id="fetchとmerge" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> FetchとMerge</h3>
+<pre><code>git fetch</code></pre>
+<p>上のコマンドは、リモートリポジトリから最新情報をローカルリポジトリに持ってくるものです。
+pullとは異なり、ローカルリポジトリが更新されるだけでファイルは更新されません。</p>
+<pre><code>git merge</code></pre>
+<p>fetchのあと、mergeすることで、ローカルのファイルが最新状態に更新されます。
+### Github(デスクトップ版)の利用</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -160,8 +143,8 @@ bundle update</code></pre>
           </div>
         </div>
       </div>
-
-<a href="jekyllで0からサイトを作る.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="共同作業について.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

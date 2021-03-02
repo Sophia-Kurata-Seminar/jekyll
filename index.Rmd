@@ -37,12 +37,27 @@ jekyll -v
 
 ## 基礎知識
 
-<b>Ruby</b>:  
+ここまでインストールの仕方を説明してきましたが、ここからは用語の説明です。  
+参考：<https://qiita.com/oshou/items/6283c2315dc7dd244aef>
 
-<b>Jekyll</b>:  
+<b>Ruby,jekyllとは</b>  
 
-<b>gem</b>:  
+Rubyはプログラミング言語のひとつで、jekyllはこの言語で書かれています。jekyllとは、Rubyで書かれた（静的）サイトを作るソフトウェアのことで、テンプレートを使えば簡単にサイトを作成できます。
 
-<b>bundler</b>:  
+jekyllテンプレートのサイト：<https://jekyllthemes.io/github-pages-themes>
 
+<b>Gemとは</b>  
 
+Gemとは、Rでいうパッケージのことです。プログラム言語は機能をまとめたライブラリーというものを作成していることが多くあり、RubyではライブラリーのことをGemと呼びます。使いたいgemをgemfileに記入すればそのgemの機能を簡単に使うことができます。
+
+<b>bundlerとは</b>  
+
+Gem同士の依存関係を整理するものです。bundler自体もgemのひとつですが、以下のような場合に備えて使用します。  
+
+GemAを使うために、GemBを使う。さらにGemBを使うためにはGemCを使う時、GemCがアップデートされるとAもBも使えなくなる場合がある。こういう場合に、bundlerはgem同士の互換性を保ちながら各gemの導入、管理を行ってくれます。  
+
+特に、共同作業を行う場合、自分と相手のGemのバージョンが異なると、エラーメッセージが表示されます。なので、定期的に以下のコマンドで、Gemの管理を行いましょう。
+```
+bundle install
+bundle update
+```
