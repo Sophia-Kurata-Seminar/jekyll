@@ -91,9 +91,10 @@
 <li class="chapter" data-level="3.1" data-path="共同作業について.html"><a href="共同作業について.html#基本の操作"><i class="fa fa-check"></i><b>3.1</b> 基本の操作</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html"><i class="fa fa-check"></i><b>4</b> 共同作業(コンフリクト編)</a><ul>
-<li class="chapter" data-level="4.1" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#複雑なコンフリクトの場合"><i class="fa fa-check"></i><b>4.1</b> 複雑なコンフリクトの場合</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#fetchとmerge"><i class="fa fa-check"></i><b>4.1.1</b> FetchとMerge</a></li>
-<li class="chapter" data-level="4.1.2" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#githubデスクトップ版の利用"><i class="fa fa-check"></i><b>4.1.2</b> Github(デスクトップ版)の利用</a></li>
+<li class="chapter" data-level="4.1" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#単純なコンフリクトの場合"><i class="fa fa-check"></i><b>4.1</b> 単純なコンフリクトの場合</a></li>
+<li class="chapter" data-level="4.2" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#複雑なコンフリクトの場合"><i class="fa fa-check"></i><b>4.2</b> 複雑なコンフリクトの場合</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#fetchとmerge"><i class="fa fa-check"></i><b>4.2.1</b> FetchとMerge</a></li>
+<li class="chapter" data-level="4.2.2" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#githubデスクトップ版の利用"><i class="fa fa-check"></i><b>4.2.2</b> Github(デスクトップ版)の利用</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
@@ -122,16 +123,18 @@
 <h1><span class="header-section-number">Chapter 4</span> 共同作業(コンフリクト編)</h1>
 <p>共同作業を行っていると、コンフリクトが発生し、マージができない事態が発生することがあります。
 本章では、コンフリクトが発生し、マージがうまくいかないときの対処法をご紹介します。</p>
-<p>##　単純なコンフリクトの場合</p>
+<div id="単純なコンフリクトの場合" class="section level2">
+<h2><span class="header-section-number">4.1</span> 単純なコンフリクトの場合</h2>
 <p>Githubの画面上の<b>【Resolve Conflicts】</b>を押します。すると、以下のような画面が表示されるので、不要な部分を削除することでコンフリクトを解決しましょう。
 （画像作成中）</p>
 <p>着色された部分について、保存したい変更を残し、それ以外は削除します。</p>
+</div>
 <div id="複雑なコンフリクトの場合" class="section level2">
-<h2><span class="header-section-number">4.1</span> 複雑なコンフリクトの場合</h2>
+<h2><span class="header-section-number">4.2</span> 複雑なコンフリクトの場合</h2>
 <p>ブランチが3つ以上ある場合や、プルリクエストの前に複雑な作業を行った場合、先ほどのようにGithub（ブラウザ版）上で対処できないことがあります。
 そんな時は以下の2つの方法を順に試してみてください。</p>
 <div id="fetchとmerge" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> FetchとMerge</h3>
+<h3><span class="header-section-number">4.2.1</span> FetchとMerge</h3>
 <pre><code>git fetch</code></pre>
 <p>上のコマンドは、リモートリポジトリから最新情報をローカルリポジトリに持ってくるものです。
 pullとは異なり、ローカルリポジトリが更新されるだけでファイルは更新されません。</p>
@@ -139,7 +142,7 @@ pullとは異なり、ローカルリポジトリが更新されるだけでフ�
 <p>fetchのあと、mergeすることで、ローカルのファイルが最新状態に更新されます。</p>
 </div>
 <div id="githubデスクトップ版の利用" class="section level3">
-<h3><span class="header-section-number">4.1.2</span> Github(デスクトップ版)の利用</h3>
+<h3><span class="header-section-number">4.2.2</span> Github(デスクトップ版)の利用</h3>
 <p>Fetch,Mergeをしてもうまくいかない場合は、Github（デスクトップ版）を利用しましょう。デスクトップ版では、複雑なコンフリクトであっても、ブラウザ版同様に、不要な部分を削除することで解決できます。</p>
 <p>Github（デスクトップ版）：<a href="https://desktop.github.com/" class="uri">https://desktop.github.com/</a></p>
 
