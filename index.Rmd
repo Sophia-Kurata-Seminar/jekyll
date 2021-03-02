@@ -20,6 +20,8 @@ description: "上智大学倉田ゼミのHPで使用している、Jekyllの使�
 
 <b>RubyInstallerをインストールする</b>  
 
+RubyInstallerのサイト：<https://rubyinstaller.org/downloads/>  
+
 RubyInstallerのサイトから、Rubyインストーラーをインストールする際には、【WITH DEVKIT】の中で、太字になっているバージョンをダウンロードすることをお勧めします。
 
 <b>JekyllとBundlerをインストールする</b>  
@@ -48,16 +50,17 @@ jekyllテンプレートのサイト：<https://jekyllthemes.io/github-pages-the
 
 <b>Gemとは</b>  
 
-Gemとは、Rでいうパッケージのことです。プログラム言語は機能をまとめたライブラリーというものを作成していることが多くあり、RubyではライブラリーのことをGemと呼びます。使いたいgemをgemfileに記入すればそのgemの機能を簡単に使うことができます。
+プログラミング言語は機能をまとめたライブラリーを作成していることが多くあり、RubyではそのライブラリーのことをGemと呼びます（Gemとは、Rでいうパッケージのことです。）使いたいgemをgemfileに記入すればそのgemの機能を使うことができます。
 
 <b>bundlerとは</b>  
 
 Gem同士の依存関係を整理するものです。bundler自体もgemのひとつですが、以下のような場合に備えて使用します。  
 
-GemAを使うために、GemBを使う。さらにGemBを使うためにはGemCを使う時、GemCがアップデートされるとAもBも使えなくなる場合がある。こういう場合に、bundlerはgem同士の互換性を保ちながら各gemの導入、管理を行ってくれます。  
+「GemAを使うために、GemBを使う。さらにGemBを使うためにはGemCを使う」という時、GemCがアップデートされるとAもBも使えなくなる場合があります。こういう場合に、bundlerはgem同士の互換性を保ちながら各gemの導入、管理を行ってくれます。  
 
 特に、共同作業を行う場合、自分と相手のGemのバージョンが異なると、エラーメッセージが表示されます。なので、定期的に以下のコマンドで、Gemの管理を行いましょう。
+＊またエラーメッセージが出たときも同様に、以下のコマンドを試してみてください。
 ```
-bundle install
-bundle update
+bundle install　//gemfileに書かれたgemを読み込む
+bundle update 　//gemのバージョン更新
 ```

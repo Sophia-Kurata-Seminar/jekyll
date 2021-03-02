@@ -129,6 +129,7 @@
 <p>以下のサイトを参考に、インストールを進めてください。注意事項や重要事項だけ、以下にまとめたので、併せて確認してみて下さい。</p>
 <p>参考：<a href="http://jekyllrb-ja.github.io/docs/installation/windows/" class="uri">http://jekyllrb-ja.github.io/docs/installation/windows/</a></p>
 <p><b>RubyInstallerをインストールする</b></p>
+<p>RubyInstallerのサイト：<a href="https://rubyinstaller.org/downloads/" class="uri">https://rubyinstaller.org/downloads/</a></p>
 <p>RubyInstallerのサイトから、Rubyインストーラーをインストールする際には、【WITH DEVKIT】の中で、太字になっているバージョンをダウンロードすることをお勧めします。</p>
 <p><b>JekyllとBundlerをインストールする</b></p>
 <p>コマンドプロンプトを開き、</p>
@@ -145,13 +146,14 @@
 <p>Rubyはプログラミング言語のひとつで、jekyllはこの言語で書かれています。jekyllとは、Rubyで書かれた（静的）サイトを作るソフトウェアのことで、テンプレートを使えば簡単にサイトを作成できます。</p>
 <p>jekyllテンプレートのサイト：<a href="https://jekyllthemes.io/github-pages-themes" class="uri">https://jekyllthemes.io/github-pages-themes</a></p>
 <p><b>Gemとは</b></p>
-<p>Gemとは、Rでいうパッケージのことです。プログラム言語は機能をまとめたライブラリーというものを作成していることが多くあり、RubyではライブラリーのことをGemと呼びます。使いたいgemをgemfileに記入すればそのgemの機能を簡単に使うことができます。</p>
+<p>プログラミング言語は機能をまとめたライブラリーを作成していることが多くあり、RubyではそのライブラリーのことをGemと呼びます（Gemとは、Rでいうパッケージのことです。）使いたいgemをgemfileに記入すればそのgemの機能を使うことができます。</p>
 <p><b>bundlerとは</b></p>
 <p>Gem同士の依存関係を整理するものです。bundler自体もgemのひとつですが、以下のような場合に備えて使用します。</p>
-<p>GemAを使うために、GemBを使う。さらにGemBを使うためにはGemCを使う時、GemCがアップデートされるとAもBも使えなくなる場合がある。こういう場合に、bundlerはgem同士の互換性を保ちながら各gemの導入、管理を行ってくれます。</p>
-<p>特に、共同作業を行う場合、自分と相手のGemのバージョンが異なると、エラーメッセージが表示されます。なので、定期的に以下のコマンドで、Gemの管理を行いましょう。</p>
-<pre><code>bundle install
-bundle update</code></pre>
+<p>「GemAを使うために、GemBを使う。さらにGemBを使うためにはGemCを使う」という時、GemCがアップデートされるとAもBも使えなくなる場合があります。こういう場合に、bundlerはgem同士の互換性を保ちながら各gemの導入、管理を行ってくれます。</p>
+<p>特に、共同作業を行う場合、自分と相手のGemのバージョンが異なると、エラーメッセージが表示されます。なので、定期的に以下のコマンドで、Gemの管理を行いましょう。
+＊またエラーメッセージが出たときも同様に、以下のコマンドを試してみてください。</p>
+<pre><code>bundle install　//gemfileに書かれたgemを読み込む
+bundle update 　//gemのバージョン更新</code></pre>
 
 </div>
 </div>

@@ -73,7 +73,7 @@
 
 \title{Jekyllマニュアル}
 \author{Sophia-kurata-seminar}
-\date{2021-02-21}
+\date{2021-03-02}
 
 \begin{document}
 \maketitle
@@ -94,6 +94,8 @@
 参考：\url{http://jekyllrb-ja.github.io/docs/installation/windows/}
 
 RubyInstallerをインストールする
+
+RubyInstallerのサイト：\url{https://rubyinstaller.org/downloads/}
 
 RubyInstallerのサイトから、Rubyインストーラーをインストールする際には、【WITH DEVKIT】の中で、太字になっているバージョンをダウンロードすることをお勧めします。
 
@@ -116,13 +118,32 @@ jekyll -v
 \hypertarget{ux57faux790eux77e5ux8b58}{%
 \section{基礎知識}\label{ux57faux790eux77e5ux8b58}}
 
-Ruby:
+ここまでインストールの仕方を説明してきましたが、ここからは用語の説明です。\\
+参考：\url{https://qiita.com/oshou/items/6283c2315dc7dd244aef}
 
-Jekyll:
+Ruby,jekyllとは
 
-gem:
+Rubyはプログラミング言語のひとつで、jekyllはこの言語で書かれています。jekyllとは、Rubyで書かれた（静的）サイトを作るソフトウェアのことで、テンプレートを使えば簡単にサイトを作成できます。
 
-bundler:
+jekyllテンプレートのサイト：\url{https://jekyllthemes.io/github-pages-themes}
+
+Gemとは
+
+プログラミング言語は機能をまとめたライブラリーを作成していることが多くあり、RubyではそのライブラリーのことをGemと呼びます（Gemとは、Rでいうパッケージのことです。）使いたいgemをgemfileに記入すればそのgemの機能を使うことができます。
+
+bundlerとは
+
+Gem同士の依存関係を整理するものです。bundler自体もgemのひとつですが、以下のような場合に備えて使用します。
+
+「GemAを使うために、GemBを使う。さらにGemBを使うためにはGemCを使う」という時、GemCがアップデートされるとAもBも使えなくなる場合があります。こういう場合に、bundlerはgem同士の互換性を保ちながら各gemの導入、管理を行ってくれます。
+
+特に、共同作業を行う場合、自分と相手のGemのバージョンが異なると、エラーメッセージが表示されます。なので、定期的に以下のコマンドで、Gemの管理を行いましょう。
+＊またエラーメッセージが出たときも同様に、以下のコマンドを試してみてください。
+
+\begin{verbatim}
+bundle install　//gemfileに書かれたgemを読み込む
+bundle update 　//
+\end{verbatim}
 
 \hypertarget{jekyllux30670ux304bux3089ux30b5ux30a4ux30c8ux3092ux4f5cux308b}{%
 \chapter{Jekyllで0からサイトを作る}\label{jekyllux30670ux304bux3089ux30b5ux30a4ux30c8ux3092ux4f5cux308b}}
@@ -328,16 +349,37 @@ git branch    #branchAが消えているのか確認
 
 2回目以降、Aさんが更新作業を行う場合や新たなメンバーが更新作業を共同で行う場合も、この方法で進めることができます。
 
-\hypertarget{applications}{%
-\chapter{Applications}\label{applications}}
+\hypertarget{ux5171ux540cux4f5cux696dux30b3ux30f3ux30d5ux30eaux30afux30c8ux7de8}{%
+\chapter{共同作業(コンフリクト編)}\label{ux5171ux540cux4f5cux696dux30b3ux30f3ux30d5ux30eaux30afux30c8ux7de8}}
 
-Some \emph{significant} applications are demonstrated in this chapter.
+共同作業を行っていると、コンフリクトが発生し、マージができない事態が発生することがあります。
+本章では、コンフリクトが発生し、マージがうまくいかないときの対処法をご紹介します。
 
-\hypertarget{example-one}{%
-\section{Example one}\label{example-one}}
+\#\#　単純なコンフリクトの場合
+Githubブラウザ版で、コンフリクトを解決することができます。
 
-\hypertarget{example-two}{%
-\section{Example two}\label{example-two}}
+\hypertarget{ux8907ux96d1ux306aux30b3ux30f3ux30d5ux30eaux30afux30c8ux306eux5834ux5408}{%
+\section{複雑なコンフリクトの場合}\label{ux8907ux96d1ux306aux30b3ux30f3ux30d5ux30eaux30afux30c8ux306eux5834ux5408}}
+
+ブランチが3つ以上ある場合や、プルリクエストの前に複雑な作業を行った場合、先ほどのようにGithub上で対処できないことがあります。
+そんな時は以下の2つの方法を順に試してみてください。
+
+\hypertarget{fetchux3068merge}{%
+\subsection{FetchとMerge}\label{fetchux3068merge}}
+
+\begin{verbatim}
+git fetch
+\end{verbatim}
+
+上のコマンドは、リモートリポジトリから最新情報をローカルリポジトリに持ってくるものです。
+pullとは異なり、ローカルリポジトリが更新されるだけでファイルは更新されません。
+
+\begin{verbatim}
+git merge
+\end{verbatim}
+
+fetchのあと、mergeすることで、ローカルのファイルが最新状態に更新されます。
+\#\#\# Github(デスクトップ版)の利用
 
 \hypertarget{final-words}{%
 \chapter{Final Words}\label{final-words}}
