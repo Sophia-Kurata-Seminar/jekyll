@@ -1,0 +1,76 @@
+# テンプレートテーマを使ってWEBサイト制作
+
+倉田ゼミのHPでは”just-the-doc”というテンプレートテーマを使用しています。  
+参考：<https://jekyll-themes.com/just-the-docs/>
+
+## Githubでレポジトリを作成
+
+## Jekyllフォルダを作成する
+
+コマンドプロンプトに以下のコードを書き込み、jekyllフォルダを作成してみましょう。
+
+```
+cd ~desktop   #作業したい場所（デスクトップ等）に移動
+jekyll new フォルダ名　#Jekyllの構成ファイルが作成される
+cd フォルダ名   #作成したJekyllフォルダに移動
+```
+
+## テーマの変更
+
+デフォルトのテーマを、選んだテーマ(just-the-docs)に変更しましょう。
+
+_postフォルダを削除し、_config.yml,gemfile,マークダウンファイルを編集していきます。
+
+<b>_config.yml</b>
+```
+baseurl: "/リポジトリ名" 
+url: "https://ユーザ名.github.io" 
+
+theme: "just-the-docs"	#に上書き
+```
+<b>gemfile</b>
+```
+gem "minima", "~> 2.5"	#消す
+
+# gem "github-pages", group: :jekyll_plugins    #ここはコメントアウトしたままで良さげ。
+
+gem "just-the-docs"	#記入する
+```
+<b>マークダウンファイル</b>  
+
+VS codeで編集しましょう。  
+倉田ゼミでは以下の構成でフォルダを作っています。
+
++ index.MD - トップページ
++ pages - トップページ以外のページ
++ assets - 画像はimagesフォルダに入れる
+
+## プレビュー＆出力
+```
+cd ~フォルダ 		#jekyllのフォルダまで移動
+bundle install	#gemfileに書かれたものをインストール
+bundle update 	#gemfileをアップデート？（定期的にした方がよい）
+bundle exec jekyll serve --watch    ##プレビュー兼Build(_siteフォルダ内にhtmlが出力される)
+bundle exec jekyll buidl -d docs	#docsに出力。実行する前にdocsを消す。でないとdocsが多層化される。
+```
+
+chapter 1と違って`bundle exec`と頭についていますが、これはbundlerを使って依存関係を整理させているだけです。必ず使うようにしましょう。  
+エラーが起きる際は、`bundle install`,`bundle update`を実行してみてください。上手くいくことがあります。
+
+## Githubにpush
+```
+git init
+git add .
+git commit -m "コメント"
+git remote add origin リポジトリURL
+git push origin master
+```
+## Githubで公開
+pushが成功したら、Githubのsettingから公開用に設定を切り替えます。  
+masterブランチのdocsを公開させましょう。
+
+
+## 諸注意
+gemfileやconfig,ymlをいじると色々なエラーが起こるときがあります。少しずづ変更させて、どこが問題になるのか把握しやすいように作業しましょう。  
+jekyll serveでプレビューが更新されないときがあります。  
+ファイルやコマンドプロンプトを閉じてもう一度やってみる、もしくは Githubにあげてしまうのもありでしょう。

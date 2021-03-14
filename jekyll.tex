@@ -5,12 +5,13 @@
 \documentclass[
 ]{book}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
+\usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
 \else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
@@ -42,6 +43,7 @@
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage{longtable,booktabs}
+\usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
 \makeatletter
@@ -50,7 +52,7 @@
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -68,12 +70,15 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
 \title{Jekyllマニュアル}
 \author{Sophia-kurata-seminar}
-\date{2021-03-02}
+\date{2021-03-14}
 
 \begin{document}
 \maketitle
@@ -129,7 +134,7 @@ jekyllテンプレートのサイト：\url{https://jekyllthemes.io/github-pages
 
 Gemとは
 
-プログラミング言語は機能をまとめたライブラリーを作成していることが多くあり、RubyではそのライブラリーのことをGemと呼びます（Gemとは、Rでいうパッケージのことです。）使いたいgemをgemfileに記入すればそのgemの機能を使うことができます。
+プログラミング言語は機能をまとめたライブラリーを作成されていることがよくあります。RubyではそのライブラリーのことをGemと呼びます（Rでいうパッケージのことです。）利用しいたいgemをgemfileに記入すればそのgemの機能を使うことができます。
 
 bundlerとは
 
@@ -138,7 +143,7 @@ Gem同士の依存関係を整理するものです。bundler自体もgemのひ�
 「GemAを使うために、GemBを使う。さらにGemBを使うためにはGemCを使う」という時、GemCがアップデートされるとAもBも使えなくなる場合があります。こういう場合に、bundlerはgem同士の互換性を保ちながら各gemの導入、管理を行ってくれます。
 
 特に、共同作業を行う場合、自分と相手のGemのバージョンが異なると、エラーメッセージが表示されます。なので、定期的に以下のコマンドで、Gemの管理を行いましょう。
-＊またエラーメッセージが出たときも同様に、以下のコマンドを試してみてください。
+＊またエラーメッセージが出たときも同様に、まずは以下のコマンドを試してみてください。
 
 \begin{verbatim}
 bundle install　//gemfileに書かれたgemを読み込む
@@ -153,21 +158,27 @@ Default themeを利用して、ゼロからサイトを作ってみましょう�
 \hypertarget{githubux306bux30ecux30ddux30b8ux30c8ux30eaux3092ux4f5cux6210}{%
 \section{GitHubにレポジトリを作成}\label{githubux306bux30ecux30ddux30b8ux30c8ux30eaux3092ux4f5cux6210}}
 
+まずはGithubにリポジトリを作成します。後でここに必要なフォルダをアップロード(push)します。
+
 \hypertarget{jekyllux30d5ux30a9ux30ebux30c0ux3092ux4f5cux6210ux3059ux308b}{%
 \section{Jekyllフォルダを作成する}\label{jekyllux30d5ux30a9ux30ebux30c0ux3092ux4f5cux6210ux3059ux308b}}
 
 コマンドプロンプトに以下のコードを書き込み、jekyllフォルダを作成してみましょう。
 
 \begin{verbatim}
-cd ~desktop
+cd ~desktop   #作業したい場所（デスクトップ等）に移動
 jekyll new フォルダ名　#Jekyllの構成ファイルが作成される
-cd フォルダ名　　　　　#作成したJekyllフォルダに移動
+cd フォルダ名   #作成したJekyllフォルダに移動
 \end{verbatim}
 
 \hypertarget{config.ymlux306eux5909ux66f4}{%
 \section{\_config.ymlの変更}\label{config.ymlux306eux5909ux66f4}}
 
-作成したフォルダの中にある、\_config.ymlの変更を行います。(AtomやVS codeで開けます。)
+作成したフォルダの中にある、\_config.ymlの変更を行います。(VS codeなどで開けます。)
+
+VS codeのインストール
+
+Visual Studio Code：\url{https://azure.microsoft.com/ja-jp/products/visual-studio-code/}
 
 \begin{verbatim}
 baseurl:"/レポジトリ名"
@@ -178,12 +189,15 @@ url:"https://ユーザー名.github.io"
 \section{サイトのプレビューを表示＆出力}\label{ux30b5ux30a4ux30c8ux306eux30d7ux30ecux30d3ux30e5ux30fcux3092ux8868ux793aux51faux529b}}
 
 \begin{verbatim}
-jekyll server --watch #プレビュー兼Build(_siteフォルダ内にhtmlが出力される)
+jekyll serve --watch #プレビュー兼Build(_siteフォルダ内にhtmlが出力される)
  
-jekyll build --d docs #docsフォルダ内に、htmlなどが出力*
+jekyll build -d docs #docsフォルダ内に、htmlなどが出力される。
 \end{verbatim}
 
-*デフォルトでは、\_siteフォルダ内に出力されますが、Github pagesではdocsフォルダが必要になるため、docsに出力します。
+\texttt{jekyll\ serve}行うと、コマンドプロンプト上でローカル環境用のURLが発行されます。(例:\url{http://127.0.0.1:4000/}\textasciitilde\textasciitilde)\\
+このURLをブラウザ上に貼り付けることでサイトのプレビューを確認できます。問題がなければ\texttt{jekyll\ build}を行いましょう。　　
+
+*\texttt{build}はデフォルトでは、\_siteフォルダ内に出力されますが、Github pagesではdocsフォルダが必要になるため、\texttt{-d}のオプションを使いdocsフォルダに出力します。
 
 \hypertarget{githubux3078ux306epush}{%
 \section{Githubへのpush}\label{githubux3078ux306epush}}
@@ -193,32 +207,40 @@ jekyll build --d docs #docsフォルダ内に、htmlなどが出力*
 
 \begin{verbatim}
 git init
-git remote add orign URL
+git remote add orign リポジトリのURL
 git add .
 git commit- m"コメント"
 git push origin master
 \end{verbatim}
 
-Githubから、Settingの変更を行う
+\hypertarget{githubux3067ux516cux958b}{%
+\section{Githubで公開}\label{githubux3067ux516cux958b}}
+
+pushが成功したら、Githubのsettingから公開用に設定を切り替えます。\\
+masterブランチのdocsを公開させましょう。
 
 \hypertarget{ux30c6ux30f3ux30d7ux30ecux30fcux30c8ux30c6ux30fcux30deux3092ux4f7fux3063ux3066webux30b5ux30a4ux30c8ux5236ux4f5c}{%
 \chapter{テンプレートテーマを使ってWEBサイト制作}\label{ux30c6ux30f3ux30d7ux30ecux30fcux30c8ux30c6ux30fcux30deux3092ux4f7fux3063ux3066webux30b5ux30a4ux30c8ux5236ux4f5c}}
 
-倉田ゼミのHPでは''just-the-doc''というテンプレートテーマを使用しています。
+倉田ゼミのHPでは''just-the-doc''というテンプレートテーマを使用しています。\\
 参考：\url{https://jekyll-themes.com/just-the-docs/}
 
 \hypertarget{githubux3067ux30ecux30ddux30b8ux30c8ux30eaux3092ux4f5cux6210}{%
 \section{Githubでレポジトリを作成}\label{githubux3067ux30ecux30ddux30b8ux30c8ux30eaux3092ux4f5cux6210}}
 
-\hypertarget{jekyllux30d5ux30a9ux30ebux30c0ux3092ux4f5cux6210ux3059ux308b}{%
-\section{Jekyllフォルダを作成する}\label{jekyllux30d5ux30a9ux30ebux30c0ux3092ux4f5cux6210ux3059ux308b}}
+\hypertarget{jekyllux30d5ux30a9ux30ebux30c0ux3092ux4f5cux6210ux3059ux308b-1}{%
+\section{Jekyllフォルダを作成する}\label{jekyllux30d5ux30a9ux30ebux30c0ux3092ux4f5cux6210ux3059ux308b-1}}
 
 コマンドプロンプトに以下のコードを書き込み、jekyllフォルダを作成してみましょう。
 
 \begin{verbatim}
-cd ~desktop
+cd ~desktop   #作業したい場所（デスクトップ等）に移動
 jekyll new フォルダ名　#Jekyllの構成ファイルが作成される
+cd フォルダ名   #作成したJekyllフォルダに移動
 \end{verbatim}
+
+\hypertarget{ux30c6ux30fcux30deux306eux5909ux66f4}{%
+\section{テーマの変更}\label{ux30c6ux30fcux30deux306eux5909ux66f4}}
 
 デフォルトのテーマを、選んだテーマ(just-the-docs)に変更しましょう。
 
@@ -230,34 +252,47 @@ jekyll new フォルダ名　#Jekyllの構成ファイルが作成される
 baseurl: "/リポジトリ名" 
 url: "https://ユーザ名.github.io" 
 
-theme: "just-the-docs"	#に上書き
+theme: "just-the-docs"  #に上書き
 \end{verbatim}
 
 gemfile
 
 \begin{verbatim}
-gem "minima", "~> 2.5"	#消す
-# gem "github-pages", group: :jekyll_plugins	#ここはコメントアウトしたままでいいかも。
-gem "just-the-docs"	#config.ymlにremote themeを書く必要はないかも。themeのどちらかで良い？
+gem "minima", "~> 2.5"  #消す
+
+# gem "github-pages", group: :jekyll_plugins    #ここはコメントアウトしたままで良さげ。
+
+gem "just-the-docs" #記入する
 \end{verbatim}
 
 マークダウンファイル
 
-VS codeで編集することができます。
+VS codeで編集しましょう。\\
+倉田ゼミでは以下の構成でフォルダを作っています。
 
-VS codeのインストール
+\begin{itemize}
+\tightlist
+\item
+  index.MD - トップページ
+\item
+  pages - トップページ以外のページ
+\item
+  assets - 画像はimagesフォルダに入れる
+\end{itemize}
 
-Visual Studio Code：\url{https://azure.microsoft.com/ja-jp/products/visual-studio-code/}
-
-\#\#　プレビュー＆出力
+\hypertarget{ux30d7ux30ecux30d3ux30e5ux30fcux51faux529b}{%
+\section{プレビュー＆出力}\label{ux30d7ux30ecux30d3ux30e5ux30fcux51faux529b}}
 
 \begin{verbatim}
-cd ~フォルダ 		#jekyllのフォルダまで移動
-bundle install	#gemfileに書かれたものをインストール
-bundle update 	#gemfileの依存関係をアップデート？（定期的にした方がよい）
-( bundle exec jekyll s)	#ローカル環境でプレビューできる。 & _siteフォルダにhtmlが出力される。
-bundle exec jekyll buidl -d docs	#docsに結果を出力。実行する前にdocsを消す。でないとdocsが多層化される。
+cd ~フォルダ        #jekyllのフォルダまで移動
+bundle install  #gemfileに書かれたものをインストール
+bundle update   #gemfileをアップデート？（定期的にした方がよい）
+bundle exec jekyll serve --watch    ##プレビュー兼Build(_siteフォルダ内にhtmlが出力される)
+bundle exec jekyll buidl -d docs    #docsに出力。実行する前にdocsを消す。でないとdocsが多層化される。
 \end{verbatim}
+
+chapter 1と違って\texttt{bundle\ exec}と頭についていますが、これはbundlerを使って依存関係を整理させているだけです。必ず使うようにしましょう。\\
+エラーが起きる際は、\texttt{bundle\ install},\texttt{bundle\ update}を実行してみてください。上手くいくことがあります。
 
 \hypertarget{githubux306bpush}{%
 \section{Githubにpush}\label{githubux306bpush}}
@@ -270,13 +305,18 @@ git remote add origin リポジトリURL
 git push origin master
 \end{verbatim}
 
-github pagesのsettingをdocsに
+\hypertarget{githubux3067ux516cux958b-1}{%
+\section{Githubで公開}\label{githubux3067ux516cux958b-1}}
+
+pushが成功したら、Githubのsettingから公開用に設定を切り替えます。\\
+masterブランチのdocsを公開させましょう。
 
 \hypertarget{ux8af8ux6ce8ux610f}{%
 \section{諸注意}\label{ux8af8ux6ce8ux610f}}
 
-gemfile（やconfig,yml）をいじると色々なエラーが起こるときがある。
-jekyll s(erver)は更新されないときがあるので、ファイルやターミナルを閉じてから再度やる。or無視してGithubにあげてしまうのもあり。
+gemfileやconfig,ymlをいじると色々なエラーが起こるときがあります。少しずづ変更させて、どこが問題になるのか把握しやすいように作業しましょう。\\
+jekyll serveでプレビューが更新されないときがあります。\\
+ファイルやコマンドプロンプトを閉じてもう一度やってみる、もしくは Githubにあげてしまうのもありでしょう。
 
 \hypertarget{ux5171ux540cux4f5cux696dux306bux3064ux3044ux3066}{%
 \chapter{共同作業について}\label{ux5171ux540cux4f5cux696dux306bux3064ux3044ux3066}}
@@ -395,11 +435,6 @@ fetchのあと、mergeすることで、ローカルのファイルが最新状�
 Fetch,Mergeをしてもうまくいかない場合は、Github（デスクトップ版）を利用しましょう。デスクトップ版では、複雑なコンフリクトであっても、ブラウザ版同様に、不要な部分を削除することで解決できます。
 
 Github（デスクトップ版）：\url{https://desktop.github.com/}
-
-\hypertarget{final-words}{%
-\chapter{Final Words}\label{final-words}}
-
-We have finished a nice book.
 
   \bibliography{book.bib,packages.bib}
 

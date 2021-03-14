@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Jekyllで0からサイトを作る | Jekyllマニュアル</title>
   <meta name="description" content="上智大学倉田ゼミのHPで使用している、Jekyllの使用方法についてまとめたサイトです。" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Jekyllで0からサイトを作る | Jekyllマニュアル" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Sophia-kurata-seminar" />
 
 
-<meta name="date" content="2021-03-02" />
+<meta name="date" content="2021-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="テンプレートテーマを使ってwebサイト制作.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,7 +51,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 
@@ -67,38 +67,46 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Jekyllマニュアル</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>事前準備</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>事前準備</a>
+<ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#rubyjekyllのインストール"><i class="fa fa-check"></i><b>0.1</b> Ruby,Jekyllのインストール</a></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#基礎知識"><i class="fa fa-check"></i><b>0.2</b> 基礎知識</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html"><i class="fa fa-check"></i><b>1</b> Jekyllで0からサイトを作る</a><ul>
+<li class="chapter" data-level="1" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html"><i class="fa fa-check"></i><b>1</b> Jekyllで0からサイトを作る</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#githubにレポジトリを作成"><i class="fa fa-check"></i><b>1.1</b> GitHubにレポジトリを作成</a></li>
 <li class="chapter" data-level="1.2" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#jekyllフォルダを作成する"><i class="fa fa-check"></i><b>1.2</b> Jekyllフォルダを作成する</a></li>
 <li class="chapter" data-level="1.3" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#config.ymlの変更"><i class="fa fa-check"></i><b>1.3</b> _config.ymlの変更</a></li>
 <li class="chapter" data-level="1.4" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#サイトのプレビューを表示出力"><i class="fa fa-check"></i><b>1.4</b> サイトのプレビューを表示＆出力</a></li>
 <li class="chapter" data-level="1.5" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#githubへのpush"><i class="fa fa-check"></i><b>1.5</b> Githubへのpush</a></li>
+<li class="chapter" data-level="1.6" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#githubで公開"><i class="fa fa-check"></i><b>1.6</b> Githubで公開</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html"><i class="fa fa-check"></i><b>2</b> テンプレートテーマを使ってWEBサイト制作</a><ul>
+<li class="chapter" data-level="2" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html"><i class="fa fa-check"></i><b>2</b> テンプレートテーマを使ってWEBサイト制作</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#githubでレポジトリを作成"><i class="fa fa-check"></i><b>2.1</b> Githubでレポジトリを作成</a></li>
-<li class="chapter" data-level="2.2" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#jekyllフォルダを作成する"><i class="fa fa-check"></i><b>2.2</b> Jekyllフォルダを作成する</a></li>
-<li class="chapter" data-level="2.3" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#githubにpush"><i class="fa fa-check"></i><b>2.3</b> Githubにpush</a></li>
-<li class="chapter" data-level="2.4" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#諸注意"><i class="fa fa-check"></i><b>2.4</b> 諸注意</a></li>
+<li class="chapter" data-level="2.2" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#jekyllフォルダを作成する-1"><i class="fa fa-check"></i><b>2.2</b> Jekyllフォルダを作成する</a></li>
+<li class="chapter" data-level="2.3" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#テーマの変更"><i class="fa fa-check"></i><b>2.3</b> テーマの変更</a></li>
+<li class="chapter" data-level="2.4" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#プレビュー出力"><i class="fa fa-check"></i><b>2.4</b> プレビュー＆出力</a></li>
+<li class="chapter" data-level="2.5" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#githubにpush"><i class="fa fa-check"></i><b>2.5</b> Githubにpush</a></li>
+<li class="chapter" data-level="2.6" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#githubで公開-1"><i class="fa fa-check"></i><b>2.6</b> Githubで公開</a></li>
+<li class="chapter" data-level="2.7" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#諸注意"><i class="fa fa-check"></i><b>2.7</b> 諸注意</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="共同作業について.html"><a href="共同作業について.html"><i class="fa fa-check"></i><b>3</b> 共同作業について</a><ul>
+<li class="chapter" data-level="3" data-path="共同作業について.html"><a href="共同作業について.html"><i class="fa fa-check"></i><b>3</b> 共同作業について</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="共同作業について.html"><a href="共同作業について.html#基本の操作"><i class="fa fa-check"></i><b>3.1</b> 基本の操作</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html"><i class="fa fa-check"></i><b>4</b> 共同作業(コンフリクト編)</a><ul>
+<li class="chapter" data-level="4" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html"><i class="fa fa-check"></i><b>4</b> 共同作業(コンフリクト編)</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#単純なコンフリクトの場合"><i class="fa fa-check"></i><b>4.1</b> 単純なコンフリクトの場合</a></li>
-<li class="chapter" data-level="4.2" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#複雑なコンフリクトの場合"><i class="fa fa-check"></i><b>4.2</b> 複雑なコンフリクトの場合</a><ul>
+<li class="chapter" data-level="4.2" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#複雑なコンフリクトの場合"><i class="fa fa-check"></i><b>4.2</b> 複雑なコンフリクトの場合</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#fetchとmerge"><i class="fa fa-check"></i><b>4.2.1</b> FetchとMerge</a></li>
 <li class="chapter" data-level="4.2.2" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#githubデスクトップ版の利用"><i class="fa fa-check"></i><b>4.2.2</b> Github(デスクトップ版)の利用</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -119,42 +127,51 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="jekyllで0からサイトを作る" class="section level1">
+<div id="jekyllで0からサイトを作る" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Jekyllで0からサイトを作る</h1>
 <p>Default themeを利用して、ゼロからサイトを作ってみましょう。</p>
-<div id="githubにレポジトリを作成" class="section level2">
+<div id="githubにレポジトリを作成" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> GitHubにレポジトリを作成</h2>
+<p>まずはGithubにリポジトリを作成します。後でここに必要なフォルダをアップロード(push)します。</p>
 </div>
-<div id="jekyllフォルダを作成する" class="section level2">
+<div id="jekyllフォルダを作成する" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Jekyllフォルダを作成する</h2>
 <p>コマンドプロンプトに以下のコードを書き込み、jekyllフォルダを作成してみましょう。</p>
-<pre><code>cd ~desktop
+<pre><code>cd ~desktop   #作業したい場所（デスクトップ等）に移動
 jekyll new フォルダ名　#Jekyllの構成ファイルが作成される
-cd フォルダ名　　　　　#作成したJekyllフォルダに移動</code></pre>
+cd フォルダ名   #作成したJekyllフォルダに移動</code></pre>
 </div>
-<div id="config.ymlの変更" class="section level2">
+<div id="config.ymlの変更" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> _config.ymlの変更</h2>
-<p>作成したフォルダの中にある、_config.ymlの変更を行います。(AtomやVS codeで開けます。)</p>
+<p>作成したフォルダの中にある、_config.ymlの変更を行います。(VS codeなどで開けます。)</p>
+<p><b>VS codeのインストール</b></p>
+<p>Visual Studio Code：<a href="https://azure.microsoft.com/ja-jp/products/visual-studio-code/" class="uri">https://azure.microsoft.com/ja-jp/products/visual-studio-code/</a></p>
 <pre><code>baseurl:&quot;/レポジトリ名&quot;
 url:&quot;https://ユーザー名.github.io&quot;</code></pre>
 </div>
-<div id="サイトのプレビューを表示出力" class="section level2">
+<div id="サイトのプレビューを表示出力" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> サイトのプレビューを表示＆出力</h2>
-<pre><code>jekyll server --watch #プレビュー兼Build(_siteフォルダ内にhtmlが出力される)
+<pre><code>jekyll serve --watch #プレビュー兼Build(_siteフォルダ内にhtmlが出力される)
  
-jekyll build --d docs #docsフォルダ内に、htmlなどが出力*</code></pre>
-<p>*デフォルトでは、_siteフォルダ内に出力されますが、Github pagesではdocsフォルダが必要になるため、docsに出力します。</p>
+jekyll build -d docs #docsフォルダ内に、htmlなどが出力される。</code></pre>
+<p><code>jekyll serve</code>行うと、コマンドプロンプト上でローカル環境用のURLが発行されます。(例:<a href="http://127.0.0.1:4000/" class="uri">http://127.0.0.1:4000/</a>~~)<br />
+このURLをブラウザ上に貼り付けることでサイトのプレビューを確認できます。問題がなければ<code>jekyll build</code>を行いましょう。　　</p>
+<p>*<code>build</code>はデフォルトでは、_siteフォルダ内に出力されますが、Github pagesではdocsフォルダが必要になるため、<code>-d</code>のオプションを使いdocsフォルダに出力します。</p>
 </div>
-<div id="githubへのpush" class="section level2">
+<div id="githubへのpush" class="section level2" number="1.5">
 <h2><span class="header-section-number">1.5</span> Githubへのpush</h2>
 <p>公開に向けて、Githubへのpushを行います。
 参考：<a href="https://sh-2.github.io/Rstudio_bookdown" class="uri">https://sh-2.github.io/Rstudio_bookdown</a></p>
 <pre><code>git init
-git remote add orign URL
+git remote add orign リポジトリのURL
 git add .
 git commit- m&quot;コメント&quot;
 git push origin master</code></pre>
-<p>Githubから、Settingの変更を行う</p>
+</div>
+<div id="githubで公開" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Githubで公開</h2>
+<p>pushが成功したら、Githubのsettingから公開用に設定を切り替えます。<br />
+masterブランチのdocsを公開させましょう。</p>
 
 </div>
 </div>

@@ -1,0 +1,60 @@
+# Jekyllで0からサイトを作る
+
+Default themeを利用して、ゼロからサイトを作ってみましょう。
+
+## GitHubにレポジトリを作成
+まずはGithubにリポジトリを作成します。後でここに必要なフォルダをアップロード(push)します。
+
+## Jekyllフォルダを作成する
+
+コマンドプロンプトに以下のコードを書き込み、jekyllフォルダを作成してみましょう。
+
+```
+cd ~desktop   #作業したい場所（デスクトップ等）に移動
+jekyll new フォルダ名　#Jekyllの構成ファイルが作成される
+cd フォルダ名   #作成したJekyllフォルダに移動
+```
+
+##  _config.ymlの変更
+
+作成したフォルダの中にある、_config.ymlの変更を行います。(VS codeなどで開けます。)
+
+<b>VS codeのインストール</b>
+
+Visual Studio Code：<https://azure.microsoft.com/ja-jp/products/visual-studio-code/>
+
+
+```
+baseurl:"/レポジトリ名"
+url:"https://ユーザー名.github.io"
+```
+
+## サイトのプレビューを表示＆出力
+
+```
+jekyll serve --watch #プレビュー兼Build(_siteフォルダ内にhtmlが出力される)
+ 
+jekyll build -d docs #docsフォルダ内に、htmlなどが出力される。
+```
+
+`jekyll serve`行うと、コマンドプロンプト上でローカル環境用のURLが発行されます。(例:http://127.0.0.1:4000/~~)  
+このURLをブラウザ上に貼り付けることでサイトのプレビューを確認できます。問題がなければ`jekyll build`を行いましょう。　　
+
+*`build`はデフォルトでは、_siteフォルダ内に出力されますが、Github pagesではdocsフォルダが必要になるため、`-d`のオプションを使いdocsフォルダに出力します。
+
+## Githubへのpush
+
+公開に向けて、Githubへのpushを行います。
+参考：<https://sh-2.github.io/Rstudio_bookdown>
+
+```
+git init
+git remote add orign リポジトリのURL
+git add .
+git commit- m"コメント"
+git push origin master
+```
+
+## Githubで公開
+pushが成功したら、Githubのsettingから公開用に設定を切り替えます。  
+masterブランチのdocsを公開させましょう。

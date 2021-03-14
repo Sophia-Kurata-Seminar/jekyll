@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Jekyllマニュアル</title>
   <meta name="description" content="上智大学倉田ゼミのHPで使用している、Jekyllの使用方法についてまとめたサイトです。" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Jekyllマニュアル" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Sophia-kurata-seminar" />
 
 
-<meta name="date" content="2021-03-02" />
+<meta name="date" content="2021-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 
 <link rel="next" href="jekyllで0からサイトを作る.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,7 +51,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 
@@ -67,38 +67,46 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Jekyllマニュアル</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>事前準備</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>事前準備</a>
+<ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#rubyjekyllのインストール"><i class="fa fa-check"></i><b>0.1</b> Ruby,Jekyllのインストール</a></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#基礎知識"><i class="fa fa-check"></i><b>0.2</b> 基礎知識</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html"><i class="fa fa-check"></i><b>1</b> Jekyllで0からサイトを作る</a><ul>
+<li class="chapter" data-level="1" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html"><i class="fa fa-check"></i><b>1</b> Jekyllで0からサイトを作る</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#githubにレポジトリを作成"><i class="fa fa-check"></i><b>1.1</b> GitHubにレポジトリを作成</a></li>
 <li class="chapter" data-level="1.2" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#jekyllフォルダを作成する"><i class="fa fa-check"></i><b>1.2</b> Jekyllフォルダを作成する</a></li>
 <li class="chapter" data-level="1.3" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#config.ymlの変更"><i class="fa fa-check"></i><b>1.3</b> _config.ymlの変更</a></li>
 <li class="chapter" data-level="1.4" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#サイトのプレビューを表示出力"><i class="fa fa-check"></i><b>1.4</b> サイトのプレビューを表示＆出力</a></li>
 <li class="chapter" data-level="1.5" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#githubへのpush"><i class="fa fa-check"></i><b>1.5</b> Githubへのpush</a></li>
+<li class="chapter" data-level="1.6" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#githubで公開"><i class="fa fa-check"></i><b>1.6</b> Githubで公開</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html"><i class="fa fa-check"></i><b>2</b> テンプレートテーマを使ってWEBサイト制作</a><ul>
+<li class="chapter" data-level="2" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html"><i class="fa fa-check"></i><b>2</b> テンプレートテーマを使ってWEBサイト制作</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#githubでレポジトリを作成"><i class="fa fa-check"></i><b>2.1</b> Githubでレポジトリを作成</a></li>
-<li class="chapter" data-level="2.2" data-path="jekyllで0からサイトを作る.html"><a href="jekyllで0からサイトを作る.html#jekyllフォルダを作成する"><i class="fa fa-check"></i><b>2.2</b> Jekyllフォルダを作成する</a></li>
-<li class="chapter" data-level="2.3" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#githubにpush"><i class="fa fa-check"></i><b>2.3</b> Githubにpush</a></li>
-<li class="chapter" data-level="2.4" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#諸注意"><i class="fa fa-check"></i><b>2.4</b> 諸注意</a></li>
+<li class="chapter" data-level="2.2" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#jekyllフォルダを作成する-1"><i class="fa fa-check"></i><b>2.2</b> Jekyllフォルダを作成する</a></li>
+<li class="chapter" data-level="2.3" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#テーマの変更"><i class="fa fa-check"></i><b>2.3</b> テーマの変更</a></li>
+<li class="chapter" data-level="2.4" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#プレビュー出力"><i class="fa fa-check"></i><b>2.4</b> プレビュー＆出力</a></li>
+<li class="chapter" data-level="2.5" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#githubにpush"><i class="fa fa-check"></i><b>2.5</b> Githubにpush</a></li>
+<li class="chapter" data-level="2.6" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#githubで公開-1"><i class="fa fa-check"></i><b>2.6</b> Githubで公開</a></li>
+<li class="chapter" data-level="2.7" data-path="テンプレートテーマを使ってwebサイト制作.html"><a href="テンプレートテーマを使ってwebサイト制作.html#諸注意"><i class="fa fa-check"></i><b>2.7</b> 諸注意</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="共同作業について.html"><a href="共同作業について.html"><i class="fa fa-check"></i><b>3</b> 共同作業について</a><ul>
+<li class="chapter" data-level="3" data-path="共同作業について.html"><a href="共同作業について.html"><i class="fa fa-check"></i><b>3</b> 共同作業について</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="共同作業について.html"><a href="共同作業について.html#基本の操作"><i class="fa fa-check"></i><b>3.1</b> 基本の操作</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html"><i class="fa fa-check"></i><b>4</b> 共同作業(コンフリクト編)</a><ul>
+<li class="chapter" data-level="4" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html"><i class="fa fa-check"></i><b>4</b> 共同作業(コンフリクト編)</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#単純なコンフリクトの場合"><i class="fa fa-check"></i><b>4.1</b> 単純なコンフリクトの場合</a></li>
-<li class="chapter" data-level="4.2" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#複雑なコンフリクトの場合"><i class="fa fa-check"></i><b>4.2</b> 複雑なコンフリクトの場合</a><ul>
+<li class="chapter" data-level="4.2" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#複雑なコンフリクトの場合"><i class="fa fa-check"></i><b>4.2</b> 複雑なコンフリクトの場合</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#fetchとmerge"><i class="fa fa-check"></i><b>4.2.1</b> FetchとMerge</a></li>
 <li class="chapter" data-level="4.2.2" data-path="共同作業コンフリクト編.html"><a href="共同作業コンフリクト編.html#githubデスクトップ版の利用"><i class="fa fa-check"></i><b>4.2.2</b> Github(デスクトップ版)の利用</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -122,11 +130,11 @@
 <div id="header">
 <h1 class="title">Jekyllマニュアル</h1>
 <p class="author"><em>Sophia-kurata-seminar</em></p>
-<p class="date"><em>2021-03-02</em></p>
+<p class="date"><em>2021-03-14</em></p>
 </div>
 <div id="事前準備" class="section level1 unnumbered">
 <h1>事前準備</h1>
-<div id="rubyjekyllのインストール" class="section level2">
+<div id="rubyjekyllのインストール" class="section level2" number="0.1">
 <h2><span class="header-section-number">0.1</span> Ruby,Jekyllのインストール</h2>
 <p>以下のサイトを参考に、インストールを進めてください。注意事項や重要事項だけ、以下にまとめたので、併せて確認してみて下さい。</p>
 <p>参考：<a href="http://jekyllrb-ja.github.io/docs/installation/windows/" class="uri">http://jekyllrb-ja.github.io/docs/installation/windows/</a></p>
@@ -140,7 +148,7 @@
 <p>以下のコマンドで、インストールできているか確認してみましょう。</p>
 <pre><code>jekyll -v</code></pre>
 </div>
-<div id="基礎知識" class="section level2">
+<div id="基礎知識" class="section level2" number="0.2">
 <h2><span class="header-section-number">0.2</span> 基礎知識</h2>
 <p>ここまでインストールの仕方を説明してきましたが、ここからは用語の説明です。<br />
 参考：<a href="https://qiita.com/oshou/items/6283c2315dc7dd244aef" class="uri">https://qiita.com/oshou/items/6283c2315dc7dd244aef</a></p>
@@ -148,12 +156,12 @@
 <p>Rubyはプログラミング言語のひとつで、jekyllはこの言語で書かれています。jekyllとは、Rubyで書かれた（静的）サイトを作るソフトウェアのことで、テンプレートを使えば簡単にサイトを作成できます。</p>
 <p>jekyllテンプレートのサイト：<a href="https://jekyllthemes.io/github-pages-themes" class="uri">https://jekyllthemes.io/github-pages-themes</a></p>
 <p><b>Gemとは</b></p>
-<p>プログラミング言語は機能をまとめたライブラリーを作成していることが多くあり、RubyではそのライブラリーのことをGemと呼びます（Gemとは、Rでいうパッケージのことです。）使いたいgemをgemfileに記入すればそのgemの機能を使うことができます。</p>
+<p>プログラミング言語は機能をまとめたライブラリーを作成されていることがよくあります。RubyではそのライブラリーのことをGemと呼びます（Rでいうパッケージのことです。）利用しいたいgemをgemfileに記入すればそのgemの機能を使うことができます。</p>
 <p><b>bundlerとは</b></p>
 <p>Gem同士の依存関係を整理するものです。bundler自体もgemのひとつですが、以下のような場合に備えて使用します。</p>
 <p>「GemAを使うために、GemBを使う。さらにGemBを使うためにはGemCを使う」という時、GemCがアップデートされるとAもBも使えなくなる場合があります。こういう場合に、bundlerはgem同士の互換性を保ちながら各gemの導入、管理を行ってくれます。</p>
 <p>特に、共同作業を行う場合、自分と相手のGemのバージョンが異なると、エラーメッセージが表示されます。なので、定期的に以下のコマンドで、Gemの管理を行いましょう。
-＊またエラーメッセージが出たときも同様に、以下のコマンドを試してみてください。</p>
+＊またエラーメッセージが出たときも同様に、まずは以下のコマンドを試してみてください。</p>
 <pre><code>bundle install　//gemfileに書かれたgemを読み込む
 bundle update 　//gemのバージョン更新</code></pre>
 
